@@ -1,0 +1,16 @@
+\phantomsection
+\addcontentsline{toc}{chapter}{Introduzione}
+\chapter*{Introduzione}
+\markboth{Introduzione}{}
+
+Il presente documento costituisce il report finale del progetto sviluppato per l’esame universitario di \textit{Data Science}. L’obiettivo principale del lavoro è applicare in modo pratico e coerente gli strumenti della \textit{Social Network Analysis} a un dataset reale, al fine di modellare un sistema complesso come rete e analizzarne le principali proprietà strutturali.
+
+Il progetto si basa su un dataset relativo alle rotte aeree, a partire dal quale è stata costruita una rete in cui i nodi rappresentano gli aeroporti e gli archi descrivono i collegamenti tra aeroporto di origine e aeroporto di destinazione. A partire da questa modellazione, il lavoro si propone di evidenziare le caratteristiche principali della rete, individuare i nodi più rilevanti sotto diversi punti di vista e studiare la presenza di sottostrutture interne particolarmente significative.
+
+L’analisi svolta si articola in più fasi. In una prima fase viene effettuato il preprocessing del dataset, con l’obiettivo di selezionare e riorganizzare le informazioni realmente utili alla costruzione del grafo. Successivamente viene definita la rete vera e propria, sia nella sua versione diretta sia in una versione non diretta derivata, necessaria per alcune analisi strutturali. Una volta costruito il grafo, il progetto prosegue con un’analisi esplorativa delle sue caratteristiche globali, comprendente statistiche descrittive, distribuzioni dei gradi, studio delle componenti connesse e visualizzazioni della struttura complessiva.
+
+In una fase successiva, l’attenzione si sposta sulle misure di centralità, impiegate per individuare gli aeroporti più importanti nella rete secondo diverse prospettive. In particolare, vengono considerate la \textit{betweenness centrality}, la \textit{closeness centrality} e il \textit{PageRank}, così da mettere in evidenza nodi con elevata capacità di intermediazione, nodi strutturalmente vicini al resto del sistema e nodi particolarmente influenti in base alla qualità delle connessioni ricevute.
+
+Infine, il progetto approfondisce la struttura interna della rete attraverso strumenti tipici della Social Network Analysis, come la \textit{community detection}, l’analisi del \textit{k-core}, lo studio delle \textit{ego-network} e l’individuazione di \textit{clique} massimali. Queste tecniche consentono di descrivere non solo il ruolo dei singoli nodi, ma anche l’organizzazione complessiva della rete in gruppi, nuclei coesi e sottostrutture altamente connesse.
+
+Dal punto di vista implementativo, tutte le elaborazioni sono state realizzate in \textbf{Python}, utilizzando in particolare librerie come \textbf{pandas} per la gestione dei dati, \textbf{networkx} per la costruzione e l’analisi dei grafi, \textbf{matplotlib} per la produzione delle visualizzazioni e \textbf{python-louvain} per la community detection. Il risultato finale è quindi un’analisi completa di una rete di trasporto aereo, sviluppata secondo le metodologie trattate durante il corso e orientata a mostrare come i concetti della Social Network Analysis possano essere applicati in modo concreto a un caso reale.

@@ -1,0 +1,91 @@
+\chapter{Costruzione del grafo}
+
+\section{Dalla tabella preprocessata alla rete}
+
+Una volta ottenuta la tabella finale \texttt{routes\_prepared.csv}, la fase successiva del progetto ha riguardato la costruzione della rete vera e propria. La tabella preprocessata contiene tre attributi fondamentali: \texttt{source}, \texttt{destination} e \texttt{airline}. Ciascuna riga identifica una specifica rotta operata da una determinata compagnia aerea tra un aeroporto di origine e uno di destinazione.
+
+A partire da questa struttura, è stato definito un primo modello di rete in cui:
+\begin{itemize}
+    \item i nodi rappresentano gli aeroporti;
+    \item gli archi rappresentano le rotte dirette tra aeroporto sorgente e aeroporto destinazione.
+\end{itemize}
+
+Poiché il dataset distingue esplicitamente tra origine e destinazione, il fenomeno è stato modellato innanzitutto come un \textbf{grafo diretto}. Questa scelta è coerente con la natura del dato, in quanto un collegamento da un aeroporto \(A\) a un aeroporto \(B\) non coincide necessariamente, dal punto di vista della rappresentazione, con il collegamento inverso da \(B\) ad \(A\).
+
+\section{Definizione del peso degli archi}
+
+Dopo la costruzione della tabella finale, è stato verificato che non fossero presenti duplicati esatti rispetto alla tripla \texttt{(source, destination, airline)}. Questo risultato implica che ogni record della tabella descrive una rotta univoca operata da una specifica compagnia aerea.
+
+Di conseguenza, il peso degli archi non è stato definito come semplice numero di duplicati della stessa rotta, poiché tale quantità sarebbe risultata sempre pari a uno. È stata invece adottata una scelta più informativa: per ogni coppia ordinata \texttt{source}--\texttt{destination}, il peso dell’arco è stato definito come il numero di compagnie aeree distinte che operano quella stessa rotta diretta.
+
+In termini pratici, se più compagnie collegano lo stesso aeroporto di partenza con lo stesso aeroporto di arrivo, la connessione tra i due nodi viene considerata più forte e il relativo arco riceve un peso maggiore. Questa scelta consente di rappresentare non solo l’esistenza di un collegamento, ma anche il suo livello di supporto all’interno del sistema di trasporto aereo.
+
+\section{Costruzione del grafo diretto pesato}
+
+La costruzione del grafo diretto è stata realizzata aggregando i record della tabella preprocessata in base alla coppia \texttt{(source, destination)}. Per ogni coppia sono stati calcolati:
+\begin{itemize}
+    \item il numero di compagnie distinte che operano la rotta, utilizzato come \texttt{weight};
+    \item l’elenco delle compagnie associate a quella connessione, mantenuto come informazione accessoria.
+\end{itemize}
+
+A partire da questa aggregazione è stato costruito un oggetto \texttt{DiGraph} tramite la libreria \texttt{networkx}. Il grafo diretto ottenuto presenta:
+\begin{itemize}
+    \item 3425 nodi;
+    \item 37595 archi;
+    \item 1 self-loop;
+    \item densità pari a 0.003205795074698138.
+\end{itemize}
+
+Il numero molto elevato di archi mostra che il sistema di collegamenti è esteso e articolato, mentre la densità ridotta conferma fin da questa fase che la rete è fortemente sparsa rispetto al numero massimo di connessioni teoricamente possibili.
+
+\section{Componenti del grafo diretto}
+
+Per descrivere la struttura globale del grafo diretto sono state calcolate sia le componenti debolmente connesse sia quelle fortemente connesse. I risultati ottenuti sono i seguenti:
+\begin{itemize}
+    \item 8 weakly connected components;
+    \item 44 strongly connected components;
+    \item largest weakly connected component di dimensione 3397;
+    \item largest strongly connected component di dimensione 3354.
+\end{itemize}
+
+Questi valori mostrano già una forte integrazione del sistema: la quasi totalità degli aeroporti appartiene infatti a una componente principale molto ampia. In particolare, la dimensione della largest strongly connected component suggerisce che una parte molto consistente della rete risulta reciprocamente raggiungibile attraverso cammini orientati.
+
+\section{Costruzione della versione non diretta derivata}
+
+Oltre al grafo diretto, è stata costruita anche una versione non diretta derivata della rete. Questa seconda rappresentazione è stata ottenuta ignorando l’orientamento delle rotte e aggregando ogni coppia di aeroporti come relazione simmetrica. In pratica, le coppie \((A, B)\) e \((B, A)\) vengono riportate a una sola connessione non orientata.
+
+Anche in questo caso, per ciascuna coppia di nodi è stato calcolato un peso pari al numero di compagnie distinte che collegano i due aeroporti, indipendentemente dalla direzione considerata. Questa scelta produce un grafo utile per le analisi strutturali successive, come community detection, k-core ed ego-network, nelle quali l’orientamento della relazione è meno centrale rispetto alla presenza complessiva del collegamento.
+
+Il grafo non diretto derivato presenta:
+\begin{itemize}
+    \item 3425 nodi;
+    \item 19257 archi;
+    \item 1 self-loop;
+    \item densità pari a 0.0032841599017668327;
+    \item 8 connected components;
+    \item largest connected component di dimensione 3397.
+\end{itemize}
+
+\section{Sintesi delle caratteristiche dei grafi costruiti}
+
+La Tabella~\ref{tab:graph_summary} riassume le principali caratteristiche del grafo diretto pesato e della sua versione non diretta derivata.
+
+\begin{table}[H]
+\centering
+\caption{Sintesi delle principali caratteristiche dei grafi costruiti a partire dal dataset delle rotte aeree.}
+\label{tab:graph_summary}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Caratteristica} & \textbf{Grafo diretto} & \textbf{Grafo non diretto} \\
+\midrule
+Numero di nodi & 3425 & 3425 \\
+Numero di archi & 37595 & 19257 \\
+Numero di self-loops & 1 & 1 \\
+Densità & 0.0032058 & 0.0032842 \\
+Numero di componenti & 8 weakly / 44 strongly & 8 connected \\
+Componente principale & 3397 (weakly) / 3354 (strongly) & 3397 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Come si osserva, i due grafi condividono lo stesso insieme di nodi, ma differiscono nel numero di archi e nella modalità di rappresentazione delle connessioni. Il grafo diretto mantiene l’informazione sull’orientamento delle rotte, risultando quindi più adatto allo studio delle centralità orientate. Il grafo non diretto, invece, fornisce una rappresentazione più sintetica delle relazioni complessive tra aeroporti, utile per l’analisi delle sottostrutture della rete.

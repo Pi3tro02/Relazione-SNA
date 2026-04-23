@@ -1,0 +1,83 @@
+\chapter{Dataset e preprocessing}
+
+\section{Descrizione del dataset}
+
+Il dataset utilizzato per il progetto contiene informazioni relative a rotte aeree internazionali e risulta composto, nella sua forma iniziale, da 67663 record e 9 attributi. Le variabili originarie descrivono principalmente la compagnia aerea, l’aeroporto di origine, l’aeroporto di destinazione e alcuni campi accessori relativi agli identificativi dei soggetti coinvolti, alla presenza di \textit{codeshare}, al numero di scali e al tipo di equipaggiamento impiegato.
+
+Dal punto di vista della Social Network Analysis, non tutte le variabili disponibili risultano ugualmente rilevanti. Poiché l’obiettivo del progetto è costruire una rete di collegamenti tra aeroporti, l’attenzione è stata rivolta soprattutto alle informazioni necessarie a definire i nodi e le relazioni del grafo. In particolare, le variabili di interesse principale sono risultate essere:
+\begin{itemize}
+    \item la compagnia aerea (\texttt{airline});
+    \item l’aeroporto di origine (\texttt{source airport});
+    \item l’aeroporto di destinazione (\texttt{destination airport}).
+\end{itemize}
+
+Le altre colonne presenti nel dataset sono state considerate utili soprattutto in fase di controllo e pulizia preliminare, ma non indispensabili per la costruzione della tabella finale utilizzata nelle successive analisi di rete.
+
+\section{Pulizia e normalizzazione dei dati}
+
+La prima operazione effettuata ha riguardato la normalizzazione dei nomi delle colonne. Nel dataset originale erano infatti presenti spazi superflui e una denominazione non uniforme di alcuni attributi. Per migliorare la leggibilità del codice e facilitare le elaborazioni successive, le colonne sono state rinominate con etichette più coerenti e standardizzate. In particolare, sono stati introdotti nomi come \texttt{airline\_id}, \texttt{source\_airport}, \texttt{source\_airport\_id}, \texttt{destination\_airport} e \texttt{destination\_airport\_id}.
+
+Successivamente è stato eseguito un controllo dei valori mancanti. L’analisi ha mostrato che le colonne fondamentali per il progetto non presentano valori nulli: \texttt{airline}, \texttt{source\_airport} e \texttt{destination\_airport} risultano infatti sempre valorizzate. I campi con valori mancanti riguardano prevalentemente variabili accessorie, come \texttt{codeshare}, che presenta 53066 valori mancanti, ed \texttt{equipment}, che ne presenta 18. Poiché tali attributi non sono centrali rispetto agli obiettivi del progetto, la loro incompletezza non compromette la costruzione della rete.
+
+Un ulteriore controllo ha riguardato la validità degli identificativi associati a compagnie e aeroporti. È stato osservato che in alcune righe gli ID non sono espressi come valori numerici validi, ma tramite il placeholder \texttt{\textbackslash N}, utilizzato nel dataset per rappresentare dati non disponibili o non correttamente specificati. In particolare:
+\begin{itemize}
+    \item la colonna \texttt{airline\_id} presenta 479 valori non validi;
+    \item la colonna \texttt{source\_airport\_id} presenta 220 valori non validi;
+    \item la colonna \texttt{destination\_airport\_id} presenta 221 valori non validi.
+\end{itemize}
+
+Poiché tali anomalie riguardano gli identificativi numerici e non i codici testuali degli aeroporti, non è stato necessario eliminare direttamente queste righe nella fase iniziale. Infatti, per la modellazione della rete risultano più importanti i codici degli aeroporti e della compagnia aerea, che sono risultati presenti e coerenti.
+
+\section{Controllo di coerenza delle variabili principali}
+
+Dopo la pulizia iniziale, è stata effettuata una verifica di coerenza sulle variabili che avrebbero costituito i nodi e le relazioni della rete. I risultati mostrano che:
+\begin{itemize}
+    \item la variabile \texttt{airline} presenta 568 valori distinti;
+    \item la variabile \texttt{source\_airport} presenta 3409 valori distinti;
+    \item la variabile \texttt{destination\_airport} presenta 3418 valori distinti.
+\end{itemize}
+
+Inoltre, è stato osservato che i codici degli aeroporti sono sempre composti da tre caratteri, caratteristica coerente con la presenza di codici aeroportuali sintetici utilizzabili come etichette dei nodi nel grafo. Anche i codici delle compagnie aeree risultano nella quasi totalità di lunghezza pari a due caratteri, con un numero molto limitato di casi a tre caratteri. Nel complesso, il dataset si presenta quindi sufficientemente pulito e coerente per essere trasformato in una struttura relazionale adatta alla costruzione della rete.
+
+
+
+\section{Costruzione della tabella finale}
+
+Una volta completati i controlli preliminari, è stata costruita una tabella finale ridotta, composta esclusivamente dagli attributi necessari alle analisi successive:
+\begin{itemize}
+    \item \texttt{source};
+    \item \texttt{destination};
+    \item \texttt{airline}.
+\end{itemize}
+
+La Tabella~\ref{tab:preprocessing_summary} riassume i principali risultati emersi durante la fase di preprocessing, includendo la dimensione iniziale del dataset, i controlli sui valori mancanti, la presenza di identificativi non validi e le caratteristiche della tabella finale ottenuta.
+
+\begin{table}[H]
+\centering
+\caption{Sintesi dei principali controlli effettuati nella fase di preprocessing del dataset.}
+\label{tab:preprocessing_summary}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Controllo} & \textbf{Variabile} & \textbf{Risultato} \\
+\midrule
+Dimensione iniziale del dataset & Record $\times$ attributi & 67663 $\times$ 9 \\
+Valori mancanti & \texttt{airline} & 0 \\
+Valori mancanti & \texttt{source\_airport} & 0 \\
+Valori mancanti & \texttt{destination\_airport} & 0 \\
+Valori mancanti & \texttt{codeshare} & 53066 \\
+Valori mancanti & \texttt{equipment} & 18 \\
+ID non validi & \texttt{airline\_id} & 479 \\
+ID non validi & \texttt{source\_airport\_id} & 220 \\
+ID non validi & \texttt{destination\_airport\_id} & 221 \\
+Valori distinti & \texttt{airline} & 568 \\
+Valori distinti & \texttt{source\_airport} & 3409 \\
+Valori distinti & \texttt{destination\_airport} & 3418 \\
+Dimensione tabella finale & Record $\times$ attributi & 67663 $\times$ 3 \\
+Duplicati esatti & \texttt{(source, destination, airline)} & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La tabella finale mantiene 67663 record, corrispondenti alle rotte disponibili nel dataset originario, ma riorganizzati in una forma più adatta alla modellazione del grafo. I valori mancanti nelle colonne principali risultano nulli, e non sono presenti duplicati esatti rispetto alla tripla \texttt{(source, destination, airline)}. Questo significa che ogni riga identifica in modo univoco una specifica rotta operata da una determinata compagnia aerea.
+
+Il risultato di questa fase è stato salvato nel file \texttt{routes\_prepared.csv}, che costituisce la base dati utilizzata nelle fasi successive del progetto per la costruzione del grafo diretto e della sua versione non diretta derivata.

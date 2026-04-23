@@ -1,0 +1,42 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Visualizzazione globale della rete completa.\relax }}{11}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Visualizzazione della largest weakly connected component.\relax }}{12}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Visualizzazione della largest strongly connected component.\relax }}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Distribuzione dell’in-degree nel grafo diretto.\relax }}{14}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Distribuzione dell’out-degree nel grafo diretto.\relax }}{14}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Distribuzione log-log dell’in-degree nel grafo diretto.\relax }}{15}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Distribuzione log-log dell’out-degree nel grafo diretto.\relax }}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Top 10 aeroporti per in-degree nel grafo diretto.\relax }}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Top 10 aeroporti per out-degree nel grafo diretto.\relax }}{16}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Scatter plot tra in-degree e out-degree.\relax }}{17}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Scatter plot tra degree e betweenness centrality.\relax }}{18}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Scatter plot tra degree e PageRank.\relax }}{18}{figure.caption.19}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Top 10 aeroporti per betweenness centrality.\relax }}{21}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sottografo dei top 20 aeroporti per betweenness centrality.\relax }}{22}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Top 10 aeroporti per closeness centrality.\relax }}{23}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Sottografo dei top 20 aeroporti per closeness centrality.\relax }}{24}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Top 10 aeroporti per PageRank.\relax }}{25}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Sottografo dei top 20 aeroporti per PageRank.\relax }}{26}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Top 10 aeroporti per eigenvector centrality.\relax }}{27}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Sottografo dei top 20 aeroporti per eigenvector centrality.\relax }}{28}{figure.caption.28}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Top 10 community per dimensione individuate con l’algoritmo di Louvain.\relax }}{31}{figure.caption.31}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Visualizzazione della rete colorata in base alla partizione in community.\relax }}{32}{figure.caption.32}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Sottografo della prima community per dimensione.\relax }}{33}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Sottografo della seconda community per dimensione.\relax }}{34}{figure.caption.34}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Sottografo della terza community per dimensione.\relax }}{35}{figure.caption.35}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Distribuzione dei core number nel grafo non diretto principale.\relax }}{36}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Visualizzazione del massimo k-core della rete.\relax }}{37}{figure.caption.37}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Ego-network dell’aeroporto FRA.\relax }}{38}{figure.caption.38}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Ego-network dell’aeroporto DXB.\relax }}{39}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Versione alternativa dell’ego-network di FRA con nodo centrale evidenziato.\relax }}{40}{figure.caption.40}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Versione alternativa dell’ego-network di DXB con nodo centrale evidenziato.\relax }}{41}{figure.caption.41}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Top 10 aeroporti per clustering coefficient, considerando solo nodi con grado $\geq 10$.\relax }}{42}{figure.caption.43}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Visualizzazione di una clique massima della rete.\relax }}{43}{figure.caption.44}%
+\addvspace {10\p@ }
