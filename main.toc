@@ -1,0 +1,43 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduzione}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contesto e motivazione}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Obiettivi del progetto}{1}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Dataset e preprocessing}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Descrizione del dataset}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Pulizia e normalizzazione dei dati}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Controllo di coerenza delle variabili principali}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Costruzione della tabella finale}{4}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Costruzione del grafo}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dalla tabella preprocessata alla rete}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Definizione del peso degli archi}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Costruzione del grafo diretto pesato}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Componenti del grafo diretto}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Costruzione della versione non diretta derivata}{7}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Sintesi delle caratteristiche dei grafi costruiti}{8}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Analisi esplorativa del grafo}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Obiettivi dell’analisi esplorativa}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Statistiche globali del grafo diretto}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Visualizzazione globale della rete}{10}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Distribuzione dei gradi}{13}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Aeroporti con maggiore in-degree e out-degree}{15}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Statistiche descrittive dei gradi}{17}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Relazione tra misure topologiche di base}{17}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Componenti connesse}{19}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Osservazioni conclusive sull’analisi esplorativa}{19}{section.4.9}%
+\contentsline {chapter}{\numberline {5}Analisi delle centralità}{20}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Obiettivi dell’analisi}{20}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Betweenness centrality}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Closeness centrality}{22}{section.5.3}%
+\contentsline {section}{\numberline {5.4}PageRank}{24}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Eigenvector centrality}{26}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Confronto tra le misure di centralità}{28}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Strutture della rete}{30}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Obiettivi dell’analisi strutturale}{30}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Community detection}{30}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Analisi del k-core}{35}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Ego-network di aeroporti centrali}{37}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Clustering coefficient e coesione locale}{41}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Clique massimali}{42}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Sintesi dei principali risultati strutturali}{43}{section.6.7}%
+\contentsline {chapter}{\numberline {7}Conclusioni}{45}{chapter.7}%
